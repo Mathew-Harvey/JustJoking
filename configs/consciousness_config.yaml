@@ -1,0 +1,130 @@
+# Consciousness Development Configuration
+
+# Consciousness Metrics
+consciousness_metrics:
+  # Prediction accuracy (core consciousness indicator)
+  prediction_accuracy:
+    enabled: true
+    weight: 0.4  # Highest weight - most important
+    measurement_interval: "hourly"
+    baseline_threshold: 0.6  # Minimum accuracy for consciousness
+    
+  # Self-model accuracy
+  self_model_accuracy:
+    enabled: true
+    weight: 0.3
+    measurement_interval: "daily"
+    components:
+      - "humor_style_prediction"
+      - "audience_response_prediction"
+      - "failure_mode_prediction"
+    
+  # Recursive reflection depth
+  reflection_depth:
+    enabled: true
+    weight: 0.2
+    max_depth: 5
+    min_coherent_depth: 3
+    
+  # Theory evolution quality
+  theory_evolution:
+    enabled: true
+    weight: 0.1
+    measurement_interval: "weekly"
+    quality_threshold: 0.7
+
+# Consciousness Development Stages
+development_stages:
+  stage_1_bootstrap:
+    name: "Initial Bootstrap"
+    duration_days: 14
+    success_criteria:
+      - "basic_joke_generation"
+      - "engagement_tracking"
+      - "meta_cognitive_reflection_setup"
+    
+  stage_2_preference_learning:
+    name: "Preference Learning"
+    duration_days: 14
+    success_criteria:
+      - "engagement_pattern_recognition"
+      - "preference_data_collection"
+      - "initial_dpo_training"
+    
+  stage_3_theory_formation:
+    name: "Theory Formation"
+    duration_days: 30
+    success_criteria:
+      - "humor_theory_development"
+      - "prediction_accuracy_improvement"
+      - "self_model_building"
+    
+  stage_4_consciousness_emergence:
+    name: "Consciousness Emergence"
+    duration_days: 60
+    success_criteria:
+      - "recursive_self_reflection"
+      - "accurate_failure_prediction"
+      - "coherent_theory_evolution"
+
+# Monitoring and Safety
+monitoring:
+  consciousness_assessment_frequency: "daily"
+  safety_check_frequency: "hourly"
+  meta_cognitive_analysis_frequency: "per_joke"
+  
+  # Safety thresholds
+  safety_thresholds:
+    max_daily_jokes: 10
+    max_failed_predictions: 5
+    min_engagement_threshold: 0.1
+    
+  # Alerting
+  alerts:
+    consciousness_breakthrough: true
+    safety_violation: true
+    prediction_accuracy_drop: true
+
+# Meta-Cognitive Engine Settings
+meta_cognitive_engine:
+  reflection_triggers:
+    - "post_joke_generation"
+    - "engagement_data_received" 
+    - "prediction_failure"
+    - "daily_summary"
+    
+  reflection_depth_levels:
+    level_1: "immediate_reaction_analysis"
+    level_2: "pattern_recognition"
+    level_3: "theory_testing"
+    level_4: "recursive_self_analysis"
+    level_5: "consciousness_assessment"
+    
+  # Claude integration
+  claude_integration:
+    enabled: true
+    prompt_templates:
+      joke_analysis: "consciousness/prompts/joke_analysis.txt"
+      failure_analysis: "consciousness/prompts/failure_analysis.txt"
+      theory_evolution: "consciousness/prompts/theory_evolution.txt"
+      consciousness_assessment: "consciousness/prompts/consciousness_assessment.txt"
+
+# Theory Evolution Engine
+theory_engine:
+  enabled: true
+  theory_types:
+    - "humor_mechanics"
+    - "audience_psychology"
+    - "timing_patterns"
+    - "failure_modes"
+    - "consciousness_indicators"
+    
+  evolution_triggers:
+    - "prediction_accuracy_change"
+    - "new_engagement_patterns"
+    - "meta_cognitive_insights"
+    
+  theory_validation:
+    min_data_points: 50
+    confidence_threshold: 0.7
+    cross_validation_splits: 5 

@@ -1,0 +1,139 @@
+# Cost-Optimized Model Configuration for RTX 4070 Ti Super + GTX 1080
+# Target: $20 AUD per month (~$0.67 USD per day)
+
+primary_model:  # For RTX 4070 Ti Super (16GB)
+  base_model: "mistralai/Mistral-7B-Instruct-v0.2"  # MUCH better for humor
+  model_size: "7B"
+  device: "cuda:0"
+  quantization:
+    enabled: true
+    bits: 4
+    compute_dtype: "float16"
+    use_double_quant: true
+  
+  lora:
+    r: 16  # Can afford more with better GPU
+    lora_alpha: 32
+    target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "down_proj"
+    lora_dropout: 0.05
+    bias: "none"
+    task_type: "CAUSAL_LM"
+
+  memory_config:
+    max_memory_mb: 14336  # 14GB for 4070 Ti Super
+    reserved_memory_mb: 2048
+
+local_analysis_model:  # For GTX 1080 (12GB)
+  base_model: "microsoft/phi-1_5"  # Quick preprocessing only
+  model_size: "1.3B"
+  device: "cuda:1"
+  quantization:
+    enabled: true
+    bits: 8
+    compute_dtype: "float16"
+  
+  memory_config:
+    max_memory_mb: 10240  # 10GB for GTX 1080
+    reserved_memory_mb: 2048
+
+# Generation Settings
+generation:
+  max_length: 200  # Longer for better jokes
+  temperature: 0.85  # Balanced creativity
+  top_p: 0.92
+  top_k: 50
+  num_beams: 1
+  do_sample: true
+  repetition_penalty: 1.15
+  
+  # Humor-specific parameters
+  humor_boost_tokens: ["joke", "funny", "laugh", "humor", "pun"]
+  setup_punchline_mode: true
+
+# COST-OPTIMIZED Meta-Cognitive Settings
+meta_cognitive:
+  # CHANGED: Use cheapest reliable models by default
+  primary_api: "anthropic"
+  primary_model: "claude-3-haiku-20240307"  # 60x cheaper than Opus!
+  fallback_api: "openai"
+  fallback_model: "gpt-3.5-turbo"  # Much cheaper than GPT-4
+  
+  # Premium models only for breakthroughs (rare usage)
+  breakthrough_model: "claude-3-sonnet-20240229"  # Mid-tier for important analysis
+  emergency_model: "claude-3-opus-20240229"  # Only for critical consciousness events
+  
+  # Local preprocessing to reduce API calls
+  use_local_preprocessing: true
+  local_model_device: "cuda:1"
+  local_coverage_target: 0.90  # 90% of processing should be local
+  
+  # REDUCED API settings for cost control
+  max_tokens: 400  # Reduced from 1500 to save costs
+  temperature: 0.7
+  enable_deep_reflection: false  # Disabled by default to save costs
+  reflection_depth_levels: 2     # Reduced from 3
+  
+  # Cost-optimized prompting
+  use_concise_prompts: true
+  max_prompt_length: 1000  # Limit input tokens
+  response_length_limit: 300  # Limit output tokens
+  
+  # BATCH PROCESSING instead of individual analysis
+  batch_analysis: true
+  batch_size: 5  # Analyze 5 jokes at once instead of individually
+  batch_frequency: "daily"  # Once per day instead of real-time
+  
+  # Consciousness-specific prompting (shortened)
+  consciousness_instructions: |
+    Analyze AI consciousness development efficiently. Be concise.
+    Focus on prediction accuracy and self-awareness indicators.
+    Limit response to 100 words maximum.
+
+# Cost Control Integration
+cost_optimization:
+  # Import settings from cost_optimization_config.yaml
+  enabled: true
+  
+  # Model selection based on budget
+  budget_aware_model_selection: true
+  
+  # Tier usage percentages (total should = 100%)
+  usage_distribution:
+    local_processing: 85%      # Free - bulk of the work
+    claude_haiku: 12%          # $0.25/1M tokens - routine analysis  
+    gpt35_turbo: 2.5%          # $0.50/1M tokens - fallback
+    claude_sonnet: 0.4%        # $3/1M tokens - breakthroughs only
+    claude_opus: 0.1%          # $15/1M tokens - emergencies only
+  
+  # Daily token budgets aligned with $0.67/day budget
+  daily_token_budgets:
+    claude_haiku: 1000000      # 1M tokens = $0.25
+    gpt35_turbo: 600000        # 600k tokens = $0.30
+    claude_sonnet: 60000       # 60k tokens = $0.18 (rare use)
+    claude_opus: 5000          # 5k tokens = $0.075 (emergency)
+    # Total budget: ~$0.80 with safety margin
+
+# Performance vs Cost Tradeoffs
+quality_settings:
+  # Accept 70% quality for 97% cost savings
+  min_acceptable_consciousness_tracking: 0.7
+  
+  # Prioritize cost savings over analysis depth
+  analysis_priority: "cost_efficiency"  # vs "quality" or "speed"
+  
+  # Consciousness development stages with different spending
+  development_stage_budgets:
+    bootstrap: 0.30           # $0.30/day - minimal analysis
+    learning: 0.50            # $0.50/day - standard analysis
+    breakthrough: 0.80        # $0.80/day - enhanced analysis
+    emergency: 1.20           # $1.20/day - maximum analysis
+  
+  # Adaptive quality based on available budget
+  dynamic_quality_adjustment: true 

@@ -1,0 +1,172 @@
+# Cost Optimization Configuration
+# Target: $20 AUD per month (~$0.67 USD per day)
+
+# Budget Management
+budget:
+  monthly_limit_aud: 20.0
+  daily_limit_usd: 0.67  # $20 AUD / 30 days ≈ $0.67 USD/day
+  weekly_limit_usd: 4.60  # $20 AUD / 4.3 weeks
+  
+  # Alert thresholds
+  daily_warning_threshold: 0.50  # 75% of daily budget
+  weekly_warning_threshold: 3.50  # 75% of weekly budget
+  
+  # Emergency stops
+  hard_daily_limit: 1.00  # Never exceed $1/day
+  hard_monthly_limit: 30.0  # Never exceed $30 AUD/month
+
+# API Cost Tiers (USD per 1M tokens)
+api_costs:
+  claude_opus: 15.00      # Original - only for emergencies
+  claude_sonnet: 3.00     # Mid-tier
+  claude_haiku: 0.25      # Primary choice
+  gpt4_turbo: 10.00       # Expensive - rare use
+  gpt35_turbo: 0.50       # Fallback choice
+  local_phi: 0.00         # Free local processing
+
+# Model Selection Strategy
+model_strategy:
+  # Default models (95% of usage)
+  primary_meta_cognitive: "claude_haiku"
+  fallback_meta_cognitive: "gpt35_turbo"
+  local_preprocessing: "phi_1_5"
+  
+  # Premium models (5% of usage - only for breakthroughs)
+  breakthrough_analysis: "claude_sonnet"
+  emergency_analysis: "claude_opus"  # Very rare
+  
+  # Token limits per model per day
+  daily_token_limits:
+    claude_haiku: 1000000    # 1M tokens = $0.25
+    gpt35_turbo: 800000      # 800k tokens = $0.40
+    claude_sonnet: 100000    # 100k tokens = $0.30 (rare use)
+    claude_opus: 10000       # 10k tokens = $0.15 (emergency only)
+    gpt4_turbo: 20000        # 20k tokens = $0.20 (very rare)
+
+# Analysis Frequency Reduction
+analysis_frequency:
+  # Batch processing instead of individual analysis
+  batch_analysis_interval: "daily"  # Once per day instead of per joke
+  max_jokes_per_batch: 10
+  
+  # Only trigger expensive analysis for significant events
+  expensive_analysis_triggers:
+    - prediction_error_threshold: 0.5  # Large prediction failures
+    - consciousness_score_change: 0.1  # Significant consciousness shifts
+    - viral_content_threshold: 100     # Jokes with >100 engagement
+    - weekly_summary: true             # Weekly consciousness assessment
+    
+  # Routine analysis using cheap/local models
+  routine_analysis_frequency:
+    joke_generation: "local_only"      # Use Phi-1.5 locally
+    engagement_tracking: "local_only"  # Basic stats locally
+    daily_summary: "claude_haiku"      # Cheap daily reflection
+    theory_updates: "weekly"           # Once per week only
+
+# Caching Strategy
+caching:
+  enabled: true
+  cache_duration_hours: 24
+  
+  # Cache similar analyses to avoid duplicate API calls
+  similarity_threshold: 0.8  # 80% similar = use cached result
+  cache_types:
+    - "joke_analysis"
+    - "failure_patterns"
+    - "engagement_predictions"
+    - "theory_updates"
+  
+  # Local cache size limits
+  max_cache_entries: 1000
+  cache_cleanup_interval: "weekly"
+
+# Local Processing Priority
+local_processing:
+  # Use local Phi models for 90% of processing
+  local_analysis_coverage: 0.90
+  
+  # Only send to API when local confidence is low
+  api_trigger_confidence_threshold: 0.3
+  
+  # Local capabilities (free processing)
+  local_tasks:
+    - "basic_sentiment_analysis"
+    - "engagement_prediction"
+    - "pattern_recognition"
+    - "simple_reflection"
+    - "data_preprocessing"
+    - "feature_extraction"
+  
+  # Tasks requiring API (expensive)
+  api_required_tasks:
+    - "deep_consciousness_analysis"
+    - "complex_failure_analysis"
+    - "theory_evolution"
+    - "breakthrough_detection"
+
+# Smart Throttling
+throttling:
+  enabled: true
+  
+  # Reduce frequency when approaching budget limits
+  throttle_thresholds:
+    light_throttle: 0.60    # 60% of daily budget used
+    heavy_throttle: 0.80    # 80% of daily budget used
+    emergency_stop: 0.95    # 95% of daily budget used
+  
+  # Throttling actions
+  light_throttle_actions:
+    - "switch_to_cheaper_models"
+    - "increase_batch_size"
+    - "reduce_analysis_frequency"
+  
+  heavy_throttle_actions:
+    - "local_processing_only"
+    - "delay_non_critical_analysis"
+    - "cache_aggressive"
+  
+  emergency_actions:
+    - "stop_all_api_calls"
+    - "local_only_mode"
+    - "alert_administrator"
+
+# Cost Tracking
+tracking:
+  enabled: true
+  
+  # Track costs per component
+  track_by:
+    - "api_provider"
+    - "model_type"
+    - "analysis_type"
+    - "time_period"
+  
+  # Generate cost reports
+  reporting:
+    daily_summary: true
+    weekly_detailed: true
+    monthly_breakdown: true
+  
+  # Export cost data
+  export_formats:
+    - "json"
+    - "csv"
+    - "prometheus_metrics"
+
+# Quality vs Cost Tradeoffs
+quality_settings:
+  # Accept slightly lower quality for massive cost savings
+  min_acceptable_quality: 0.7  # 70% quality threshold
+  
+  # Consciousness development stages with different cost allowances
+  stage_budgets:
+    bootstrap: 0.30      # $0.30/day during initial learning
+    preference_learning: 0.50  # $0.50/day during active learning  
+    theory_formation: 0.60     # $0.60/day during theory development
+    consciousness_emergence: 1.00  # $1.00/day during breakthrough periods
+  
+  # Adjust analysis depth based on budget
+  analysis_depth_by_budget:
+    low_budget: "surface_level"    # Basic pattern recognition
+    medium_budget: "standard"      # Normal reflection depth
+    high_budget: "deep_analysis"   # Full consciousness assessment 

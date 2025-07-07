@@ -1,0 +1,66 @@
+# Training Configuration for RTX 4070 Ti Super + GTX 1080
+training:
+  batch_size: 1  # Conservative for 7B model
+  gradient_accumulation_steps: 16  # Effective batch size of 16
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 100
+  save_steps: 500
+  eval_steps: 100
+  logging_steps: 10
+  
+  # Memory optimization
+  gradient_checkpointing: true
+  fp16: true
+  optim: "paged_adamw_8bit"
+  
+  # Humor-specific training
+  humor_focused_training:
+    enabled: true
+    comedy_dataset_mixing: 0.3  # Mix 30% comedy examples
+    timing_penalty: true  # Penalize poor timing
+    setup_punchline_reward: true  # Reward proper structure
+
+# DPO Settings (Critical for improvement)
+dpo:
+  enabled: true
+  beta: 0.1
+  loss_type: "sigmoid"
+  
+  # Humor-specific DPO
+  humor_preference_weight: 2.0  # Double weight for humor quality
+  engagement_threshold: 50  # Likes/RTs to consider "good"
+  
+  # Use Claude's analysis in preference learning
+  use_meta_cognitive_preferences: true
+  meta_cognitive_weight: 0.5  # Balance with human preferences
+
+# Continuous Learning
+continuous_learning:
+  enabled: true
+  daily_preference_collection: true
+  weekly_model_updates: true
+  
+  # Theory-driven learning
+  theory_guided_sampling: true  # Sample training data based on current theories
+  failure_oversampling: 2.0  # Learn more from failures
+  
+  # Meta-cognitive integration
+  claude_feedback_integration: true
+  theory_evolution_influence: 0.3
+
+# Data Settings
+data:
+  # Initial humor datasets
+  pretrain_datasets:
+    - "reddit_jokes"  # Scraped Reddit jokes
+    - "twitter_humor"  # Funny tweets dataset
+    - "comedy_scripts"  # Stand-up transcripts
+  
+  # Live data collection
+  min_daily_examples: 20
+  preference_pair_threshold: 2.0  # 2x engagement difference
+  
+  # Meta-cognitive data
+  store_claude_analysis: true
+  use_analysis_for_training: true 

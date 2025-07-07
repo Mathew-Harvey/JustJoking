@@ -1,0 +1,444 @@
+# HumorConsciousnessAI .gitignore
+# Comprehensive file to protect sensitive data and maintain clean repository
+
+# =============================================================================
+# CRITICAL: ENVIRONMENT & SECRETS
+# =============================================================================
+
+# Environment files with API keys and secrets
+.env
+.env.*
+!.env.example
+environment_config.py
+secrets.py
+api_keys.txt
+credentials.json
+*.key
+*.pem
+*.p12
+*.pfx
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# =============================================================================
+# DATA DIRECTORIES (POTENTIALLY SENSITIVE)
+# =============================================================================
+
+# Raw data that might contain personal information
+data/raw/
+data/personal/
+data/private/
+data/user_data/
+
+# Processed data that might be large or sensitive
+data/processed/*.parquet
+data/processed/*.feather
+data/processed/*.pickle
+data/processed/*.pkl
+
+# Model files (usually too large for git)
+data/models/*.bin
+data/models/*.safetensors
+data/models/*.ckpt
+data/models/*.pt
+data/models/*.pth
+data/models/*.h5
+models/*.bin
+models/*.safetensors
+models/*.ckpt
+models/*.pt
+models/*.pth
+models/*.h5
+
+# Cache directories
+data/cache/
+cache/
+.cache/
+
+# Logs directory
+data/logs/
+logs/
+*.log
+
+# Cost tracking data (contains usage patterns)
+data/costs/
+costs/
+
+# =============================================================================
+# MACHINE LEARNING & AI
+# =============================================================================
+
+# Weights & Biases
+wandb/
+
+# MLflow
+mlruns/
+
+# TensorBoard logs
+runs/
+tensorboard_logs/
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+*.checkpoint
+
+# Hugging Face cache
+.cache/huggingface/
+
+# CUDA cache
+.nv/
+
+# =============================================================================
+# DATABASE FILES
+# =============================================================================
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Database dumps
+*.sql
+*.dump
+
+# PostgreSQL
+*.pg_dump
+
+# =============================================================================
+# DOCKER & CONTAINERS
+# =============================================================================
+
+# Docker volumes
+docker-compose.override.yml
+.docker/
+
+# =============================================================================
+# IDE & EDITOR FILES
+# =============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# =============================================================================
+# CLOUD & DEPLOYMENT
+# =============================================================================
+
+# AWS
+.aws/
+
+# Google Cloud
+gcloud/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Kubernetes
+*.kubeconfig
+
+# =============================================================================
+# BACKUP & TEMPORARY FILES
+# =============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+# Temporary files
+temp/
+tmp/
+.temp/
+.tmp/
+
+# =============================================================================
+# TESTING & BENCHMARKING
+# =============================================================================
+
+# Test outputs
+test_outputs/
+test_results/
+
+# Benchmark results
+benchmarks/
+*.benchmark
+
+# =============================================================================
+# CONSCIOUSNESS-SPECIFIC FILES
+# =============================================================================
+
+# Twitter data exports (potentially sensitive)
+twitter_data/
+tweets_export/
+
+# User interaction logs
+user_interactions/
+chat_logs/
+
+# Joke datasets that might be copyrighted
+joke_datasets/
+comedy_data/
+
+# Personal consciousness development data
+consciousness_logs/
+personal_insights/
+
+# =============================================================================
+# CONFIGURATION OVERRIDES
+# =============================================================================
+
+# Local configuration overrides
+configs/local_*.yaml
+configs/personal_*.yaml
+configs/*_override.yaml
+local_config.py
+personal_config.py
+
+# =============================================================================
+# API TESTING & DEVELOPMENT
+# =============================================================================
+
+# API test results
+api_tests/
+response_logs/
+
+# Development notebooks that might contain keys
+dev_*.ipynb
+test_*.ipynb
+scratch_*.ipynb
+
+# =============================================================================
+# PACKAGE MANAGERS
+# =============================================================================
+
+# npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Conda
+.conda/
+
+# =============================================================================
+# DOCUMENTATION BUILD
+# =============================================================================
+
+# Sphinx
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# =============================================================================
+# MISC
+# =============================================================================
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large files that shouldn't be in git
+*.bin
+*.dat
+*.large
+
+# Personal notes
+notes.txt
+todo.txt
+personal_*.txt
+scratch.txt
+
+# =============================================================================
+# KEEP THESE FILES (IMPORTANT FOR PROJECT)
+# =============================================================================
+
+# These files SHOULD be committed:
+# README.md
+# requirements.txt
+# setup.py
+# docker-compose.yml
+# Dockerfile
+# configs/*.yaml (except personal overrides)
+# src/ (all source code)
+# scripts/ (setup and utility scripts)
+# tests/ (test suite)
+# environment_template.txt (template for .env) 

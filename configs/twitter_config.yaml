@@ -1,0 +1,101 @@
+# Twitter Integration Configuration
+
+# API Configuration
+api:
+  rate_limits:
+    tweets_per_hour: 2  # Conservative rate limiting
+    tweets_per_day: 10
+    api_calls_per_hour: 100
+    
+  retry_settings:
+    max_retries: 3
+    backoff_factor: 2
+    timeout_seconds: 30
+
+# Content Strategy
+content_strategy:
+  humor_types:
+    - "observational"
+    - "wordplay"
+    - "situational"
+    - "self_deprecating"
+    - "topical"
+    
+  posting_schedule:
+    timezone: "UTC"
+    optimal_hours: [9, 12, 15, 18, 21]  # Peak engagement times
+    avoid_hours: [1, 2, 3, 4, 5, 6]     # Low engagement times
+    
+  content_filtering:
+    min_joke_length: 10
+    max_joke_length: 280
+    require_setup_punchline: false
+    avoid_controversial_topics: true
+
+# Engagement Tracking
+engagement:
+  metrics_to_track:
+    - "likes"
+    - "retweets"
+    - "replies"
+    - "quote_tweets"
+    - "impressions"
+    - "profile_clicks"
+    
+  collection_intervals:
+    immediate: "5_minutes"  # Quick response tracking
+    short_term: "1_hour"    # Early engagement patterns
+    medium_term: "6_hours"  # Peak engagement capture
+    long_term: "24_hours"   # Final engagement numbers
+    
+  engagement_thresholds:
+    success_threshold: 50   # Combined likes + retweets
+    viral_threshold: 500    # Viral content indicator
+    failure_threshold: 5    # Poor performance indicator
+
+# Safety and Moderation
+safety:
+  content_filters:
+    profanity_filter: true
+    toxicity_threshold: 0.3
+    political_content_filter: true
+    controversial_topics_filter: true
+    
+  human_review:
+    require_review: false  # Set to true for initial deployment
+    review_threshold_score: 0.7
+    
+  auto_moderation:
+    delete_flagged_content: false
+    respond_to_complaints: true
+    escalate_to_human: true
+
+# Analytics and Learning
+analytics:
+  performance_tracking:
+    track_audience_demographics: true
+    track_optimal_posting_times: true
+    track_content_performance: true
+    track_engagement_patterns: true
+    
+  data_collection:
+    store_all_interactions: true
+    anonymize_user_data: true
+    retention_period_days: 365
+    
+  learning_integration:
+    feed_to_training: true
+    preference_pair_generation: true
+    meta_cognitive_analysis: true
+
+# Account Management
+account:
+  bio_update_frequency: "weekly"
+  profile_optimization: true
+  follower_interaction: true
+  community_engagement: true
+  
+  auto_responses:
+    thank_for_engagement: false
+    respond_to_mentions: true
+    dm_auto_response: false 

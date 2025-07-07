@@ -1,0 +1,70 @@
+# Core ML Framework (optimized for RTX 4070 Ti Super + GTX 1080)
+torch==2.1.0+cu118  # CUDA 11.8 for compatibility with GTX 1080
+torchvision==0.16.0+cu118
+torchaudio==2.1.0
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+# Transformers & Optimization
+transformers>=4.36.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0  # For quantization
+peft>=0.7.0
+trl>=0.7.0
+
+# Memory optimization for older GPU
+xformers>=0.0.22  # Memory-efficient attention
+ninja  # For building xformers
+
+# Specialized packages
+unsloth @ git+https://github.com/unslothai/unsloth.git
+
+# LLM Providers (for meta-cognitive reflection)
+openai>=1.0.0
+anthropic>=0.8.0
+
+# Twitter Integration
+tweepy>=4.14.0
+aiohttp>=3.9.0
+requests>=2.31.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+
+# Database
+psycopg2-binary>=2.9.0
+redis>=5.0.0
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+
+# Monitoring & Logging
+wandb>=0.16.0
+tensorboard>=2.15.0
+prometheus-client>=0.19.0
+structlog>=23.0.0
+nvidia-ml-py>=12.535.0  # For GPU monitoring
+
+# Web Framework (for API)
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Utilities
+python-dotenv>=1.0.0
+click>=8.1.0
+rich>=13.7.0
+tqdm>=4.66.0
+gpustat>=1.1.0  # GPU monitoring utility
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Development
+black>=23.0.0
+flake8>=6.1.0
+mypy>=1.7.0
+pre-commit>=3.5.0 
